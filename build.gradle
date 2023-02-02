@@ -1,0 +1,58 @@
+buildscript {
+    ext {
+        springBootVersion = '2.4.4'
+        liquibaseCoreVersion = '4.3.5'
+        postgreJdbcVersion = '42.2.19'
+        elasticSearchVersion = '2.6.6'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath "org.liquibase:liquibase-core:${liquibaseCoreVersion}"
+        classpath "org.liquibase:liquibase-gradle-plugin:2.0.1"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'liquibase'
+
+group 'org.belgaia.permaculture'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.15
+targetCompatibility = 1.15
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation("org.springframework.boot:spring-boot-starter-jdbc:${springBootVersion}")
+    implementation("org.springframework.boot:spring-boot-starter-data-elasticsearch:${elasticSearchVersion}")
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation("org.liquibase:liquibase-core:${liquibaseCoreVersion}")
+    runtimeOnly("org.postgresql:postgresql:${postgreJdbcVersion}")
+
+    implementation 'com.graphql-java:graphql-java:11.0' // NEW
+    implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0' // NEW
+    implementation 'com.google.guava:guava:26.0-jre' // NEW
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation group: 'com.opencsv', name: 'opencsv', version: '5.4'
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}

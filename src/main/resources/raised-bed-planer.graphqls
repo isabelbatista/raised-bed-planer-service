@@ -1,0 +1,42 @@
+type Query {
+  raisedBeds: [RaisedBed]
+  raisedBedById(id: ID): RaisedBed
+  raisedBedsWithPlantingsByYear(year: Int): [RaisedBed]
+  plantingByUUID(plantingId: String): Planting
+  importDataFromCsv: String
+  neighbourPlants(plantName: String, goodNeighbour: Boolean, badNeighbour: Boolean): [Plant!]
+  plantsByGroup(groupId: ID, groupName: String): [Plant]
+}
+
+type Mutation {
+  createRaisedBed(name: String!, dimensionX: Int!, dimensionY: Int!): RaisedBed
+  createPlantingDesign(raisedBedId: String!, year: Int!, season: String, fieldCountX: Int, fieldCountY: Int): RaisedBed
+  deleteRaisedBed(id: ID): Boolean
+  updatePlantingStatus(plantingId: String, status: String): Planting
+}
+
+type RaisedBed {
+  id: ID
+  name: String!
+  dimensionX: Int!
+  dimensionY: Int!
+  defaultFieldCountX: Int!
+  defaultFieldCountY: Int!
+  plantings: [Planting]
+}
+
+type Planting {
+  id: String
+  status: String
+  year: Int
+  season: String
+  fieldCountX: Int
+  fieldCountY: Int
+  plants: [Plant]
+}
+
+type Plant {
+  id: ID!
+  name: String
+}
+

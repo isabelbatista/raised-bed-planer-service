@@ -1,0 +1,46 @@
+// DONE: create a new raised bed
+// DONE: name of a raised bed has to be unique (check for already existing raised bed with this name during creation)
+// DONE: set default fields on the raised bed for orientation (update on the bean needed)
+// DONE: create a raised bed in an elastic search index (instead of database)
+// DONE: Remove the storage of raised beds in the Postgresql database (because we use ES now)
+// DONE: Fix errors when adding a planting design (check "getRaisedBeds" to see the problem)
+// DONE: start a new planting design
+// DONE: give possibility to set the field x and y with the new planting
+// DONE: initialize the field x and y for a new planting depending on the raised bed if no fields are set
+// DONE: find a raised bed by ID
+// DONE: get raised beds with plantings by given year
+// TOOD: add generated UID to a planting
+
+// TODO: Set GraphQL service methods under test
+// TODO: remove the obsolete liquibase sql script 001.create-initial-tables.sql if not needed anymore
+// TODO: change status of planting
+// TODO: update the field count x and y for the planting
+// TODO: Fix errors when getting all raised beds
+// TODO: create planting database (probably in a separate admin service)
+// TODO: define plants to set
+// TODO: define field counts to use on the bed
+// TODO: separate the raised bed to the given field count in x and y
+// TODO: shuffle over possible plants
+// TODO: get the size of each field
+// TODO: get good neighbours list for the chosen plants
+// TODO: get bad neighbours list for the chosen plants
+// TODO: spread plants over the fields related to the good and bad neighbour lists
+// TODO: print a plan for seeding the planned plants
+// TODO: print a plan for planting the planned plants
+// TODO: print a plan for nurtiring the planned plants
+// TODO: print a plan for harvest the fruits of the planned plants
+// TODO: define the number of plants of one sort to set
+// TODO: check for plantings in the past
+// TODO: warning for using the same place for the same sort of plant a couple of years if not recommended
+// TODO: (admin) add good neighbours of plants to the list
+// TODO: (admin) add bad neighbours of plants to the list
+// TODO: (admin) add information about good dates for seeding, planting, nurturing and harvesting plants
+// TODO: (admin) add good dates for seeding and planting related to the moon cycles
+// TODO: check the set plants also against the default field positions so that no plants are set in the same area on following years
+// TODO: set environment facts on the default fields of the raised bed (sun, shadow, wind exposure, water)
+// TODO: calculate the best field position for a chosen plant (print plant matrix)
+// TODO: move a plant to a different field position
+// TODO: warning if a new plant field position is not recommended (bad neighbour, bad environment value etc.)
+// TODO: create a Dockerfile for elasticsearch to run it in a container (use https://www.elastic.co/blog/how-to-make-a-dockerfile-for-elasticsearch for help)
+
+
